@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 
 export default {
 
@@ -10,8 +11,15 @@ export default {
   },
   components: {
 
+  },
+  created() {
+    axios
+      .get('http://127.0.0.1:8003/api/projects')
+      .then(response => {
+        console.log(response.data);
+      })
   }
-}
+};
 </script>
 
 <template>
