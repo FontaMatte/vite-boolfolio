@@ -16,7 +16,6 @@ export default {
 
 <template>
   <header>
-    HEADER
   </header>
 </template>
 

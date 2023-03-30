@@ -1,30 +1,36 @@
 <script>
 import axios from 'axios';
 
+import ProjectCard from './ProjectCard.vue';
+
 export default {
 
   name: 'AppMain',
   data() {
     return {
-
+      projects: []
     };
   },
   components: {
-
+    ProjectCard
   },
-  created() {
-    axios
-      .get('http://127.0.0.1:8003/api/projects')
-      .then(response => {
-        console.log(response.data);
-      })
-  }
 };
 </script>
 
 <template>
   <main>
-    MAIN
+    <div class="container mt-5">
+      <div class="row mb-4">
+        <div class="col">
+          <h1>
+            BOOLFOLIO
+          </h1>
+        </div>
+      </div>
+      <div class="row mb-4">    
+          <ProjectCard/>
+      </div>   
+    </div>
   </main>
 </template>
 
