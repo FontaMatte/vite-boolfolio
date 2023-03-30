@@ -6,27 +6,35 @@ export default {
   name: 'ProjectCard',
   data() {
     return {
-      projects: []
+      projects: [],
+      currentPage: 1,
+      lastPage:1
     };
   },
   components: {
 
   },
   created() {
-    axios
+    this.getprojects();
+  },
+  methods: {
+    getprojects() {
+      axios
       .get('http://127.0.0.1:8003/api/projects')
       .then(response => {
         console.log(response.data);
 
-        this.projects = response.data.projects.data
+        this.projects = response.data.projects.data;
+        this.lastPage = response.data.projects.last_page;
       })
+    }
   }
 };
 </script>
 
 <template>
   <div v-for="project in projects" class="col-12 col-sm-4 col-md-3">
-    <div class="card mb-3" style="width: 18rem;">
+    <div class="card h-100" style="width: 18rem;">
       <img :src="project.img" class="card-img-top" alt="...">
       <div class="card-body">
         <h4 class="card-title">{{ project.title }}</h4>
