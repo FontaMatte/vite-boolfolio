@@ -26,7 +26,11 @@ export default {
         },
     getProjects() {
       axios
-        .get('http://127.0.0.1:8004/api/projects')
+        .get('http://127.0.0.1:8004/api/projects', {
+          params: {
+            page:this.currentPage
+          }
+        })
         .then(response => {
           console.log(response.data);
 
