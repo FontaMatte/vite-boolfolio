@@ -5,7 +5,20 @@ export default {
   name: 'AppHeader',
   data() {
     return {
-
+      menuItems: [
+        {
+          routeName: 'home',
+          label: 'Home'
+        },
+        {
+          routeName: 'about-us',
+          label: 'Chi Siamo'
+        },
+        {
+          routeName: 'portfolio',
+          label: 'Portfolio'
+        },
+      ]
     };
   },
   components: {
@@ -30,14 +43,10 @@ export default {
               <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav d-flex justify-content-center w-100">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Pricing</a>
+                    <li class="nav-item" v-for="menuItem in menuItems">
+                      <router-link :to="{ name: menuItem.routeName }" class="nav-link">
+                        {{ menuItem.label }}
+                      </router-link>
                     </li>
                   </ul>
                 </div>

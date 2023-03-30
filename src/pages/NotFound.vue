@@ -2,7 +2,7 @@
 
 export default {
 
-  name: 'AboutUs',
+  name: 'NotFound',
   data() {
     return {
 
@@ -14,8 +14,10 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <div class="col">
-                Chi Siamo
+            <div class="col text-center">
+              <h2>
+                404 Not Found
+              </h2>         
             </div>
         </div>        
     </div>
